@@ -1,1 +1,10 @@
-<mat-card>Simple card</mat-card>
+<div class="card-wrapper">
+  <mat-card>
+    <mat-card-title>{{ settings.cardTitle | titlecase }}</mat-card-title>
+    <mat-card-subtitle>End</mat-card-subtitle>
+    <mat-card-actions align="end">
+      <button mat-button>Like</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

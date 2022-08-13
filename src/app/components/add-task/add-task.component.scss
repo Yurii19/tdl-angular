@@ -1,0 +1,14 @@
+.wrap-form {
+  margin-bottom: 20px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  button {
+    width: 10%;
+    margin: 0 auto;
+  }
+}

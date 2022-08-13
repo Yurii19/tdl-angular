@@ -1,0 +1,18 @@
+<mat-expansion-panel class="wrap-form" >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Add new task
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form [formGroup]="addTask" action="addNewTask">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title"/>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="text"></textarea>
+        </mat-form-field>
+        <button type="submit">{{ 'add task' | titlecase }}</button>
+      </form>
+  </mat-expansion-panel>

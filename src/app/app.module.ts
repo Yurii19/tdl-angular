@@ -7,23 +7,44 @@ import { TdCardComponent } from './components/td-card/td-card.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 import { LayoutComponent } from './components/layout/layout.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule}  from '@angular/material/input'
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TdCardComponent,
     LayoutComponent,
+    AddTaskComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatExpansionModule
+    
   ],
   exports: [
     TdCardComponent,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    AddTaskComponent,
+    ReactiveFormsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
