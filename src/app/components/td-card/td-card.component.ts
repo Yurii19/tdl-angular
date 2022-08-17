@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-td-card',
@@ -7,11 +8,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TdCardComponent implements OnInit {
 
-  @Input() settings: any = { title: 'title', text: 'text' };
+  @Input() settings: any = { title: 'title', description: 'text', status: 'to do' };
 
-  constructor() { }
+  statusColor : String = '';
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
+    this.statusColor = this.settings.status === 'to do' ? 'warn' : 'primary';
   }
 
 }

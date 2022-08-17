@@ -4,15 +4,14 @@ import { createAction, props } from '@ngrx/store';
 
 export const initialTaskState: ITaskState = {
   tasksSet: [
-    { id: 0, title: 'Init 1', text: 'Text 1' },
-    { id: 1, title: 'Init 2', text: 'Text 2' },
+    { id: 0, title: 'title1', description: 'description', status: 'done' },
+    { id: 1, title: 'title2', description: 'description', status: 'to do' },
   ],
 };
 
 export function taskReducer(state: ITaskState = initialTaskState, action: any) {
   switch (action.type) {
     case 'addTask':
-      console.log('taskReducer -> ',action)
       return {
         ...state,
         tasksSet: [

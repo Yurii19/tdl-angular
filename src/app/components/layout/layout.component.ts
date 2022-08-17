@@ -19,7 +19,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
     this.store
       .select(selectTasks)
       .pipe(takeUntil(this.destroy$))
-      .subscribe((data) => { console.log('data -<> ', data ); this.tasks = data});
+      .subscribe((data) => { this.tasks = data});
   }
 
   ngOnInit(): void {}
