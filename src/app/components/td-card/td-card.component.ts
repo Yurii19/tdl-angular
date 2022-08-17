@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { of } from 'rxjs';
+import { IAppState } from 'src/app/Interfaces';
+import { Store } from '@ngrx/store';
+import { removeTask } from 'src/app/store/task.reducer';
 
 @Component({
   selector: 'app-td-card',
@@ -8,16 +11,19 @@ import { of } from 'rxjs';
 })
 export class TdCardComponent implements OnInit {
 
-  @Input() settings: any = { title: 'title', description: 'text', status: 'to do' };
+  @Input() settings: any = { id: 0,title: 'title', description: 'text', status: 'to do', };
 
-  statusColor : String = '';
+  isDone : String = '';
 
-  constructor() {
-
+  constructor( private store: Store<IAppState>) {
   }
 
   ngOnInit(): void {
-    this.statusColor = this.settings.status === 'to do' ? 'warn' : 'primary';
+    this.isDone = this.settings.status === 'to do' ? '' : 'done-card';
+  }
+
+  removeTask() {
+    this.store.dispatch(removeTask({taskId : this.settings.id}));
   }
 
 }

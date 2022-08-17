@@ -18,6 +18,12 @@ export function taskReducer(state: ITaskState = initialTaskState, action: any) {
           ...state.tasksSet, action.task]
         ,
       };
+    case 'removeTask':
+      return {
+        ...state,
+        tasksSet: [
+          ...state.tasksSet.filter(el => el.id !== action.taskId)]
+      };
     case 'getTasks':
       return initialTaskState;
     case 'getTask':
@@ -38,3 +44,5 @@ export const getTasks = createAction('getTasks');
 export const getTask = createAction('getTask', props<{ taskId: Number }>());
 
 export const addTask = createAction('addTask', props<{ task: ITask }>());
+
+export const removeTask = createAction('removeTask', props<{taskId: Number}>())

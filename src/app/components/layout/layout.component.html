@@ -1,5 +1,5 @@
 <h2>{{ "task manager" | titlecase }}</h2>
-<app-add-task></app-add-task>
+<app-add-task [newTaskId]="newTaskId"></app-add-task>
 <section>
   <app-td-card *ngFor="let task of tasks" [settings]="task"></app-td-card>
 </section>

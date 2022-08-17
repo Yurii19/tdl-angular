@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { StoreModule } from '@ngrx/store';
 import { initialTaskState, taskReducer } from './store/task.reducer';
+import { TaskListComponent } from './components/task-list/task-list.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { initialTaskState, taskReducer } from './store/task.reducer';
     AppComponent,
     TdCardComponent,
     LayoutComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    TaskListComponent
     
   ],
   imports: [
