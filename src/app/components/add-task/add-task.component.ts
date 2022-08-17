@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { IAppState, ITask } from 'src/app/Interfaces';
+import { Store } from '@ngrx/store';
+import { addTask } from 'src/app/store/task.reducer';
 
 @Component({
   selector: 'app-add-task',
@@ -13,14 +16,21 @@ export class AddTaskComponent implements OnInit {
     text: new FormControl('')
   })
 
-  constructor() { }
+  constructor( 
+    private store: Store<IAppState>
+  ) { }
 
   ngOnInit(): void {
-    this.addTask.valueChanges.subscribe(() => console.log('value ->', this.addTask.value))
+   // this.addTask.valueChanges.subscribe(() => console.log('value ->', this.addTask.value))
   }
 
- addNewTask(v: string){
-   console.log(' -> ', v)
+ addNewTask() {
+   const newTask: ITask = {
+     id: 2,
+     title: this.addTask.controls['title'].value,
+     text: this.addTask.controls['text'].value,
+   }
+   this.store.dispatch(addTask({task: newTask}))
  }
 
 }

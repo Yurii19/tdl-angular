@@ -1,5 +1,5 @@
-<h2>{{'task manager' | titlecase}}</h2>
+<h2>{{ "task manager" | titlecase }}</h2>
 <app-add-task></app-add-task>
-<app-td-card
-	[settings]="{ cardTitle: 'fits title'}"
-></app-td-card>
+<section>
+  <app-td-card *ngFor="let task of tasks" [settings]="task"></app-td-card>
+</section>
