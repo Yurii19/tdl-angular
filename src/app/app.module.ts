@@ -14,6 +14,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule}  from '@angular/material/input'
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { StoreModule } from '@ngrx/store';
+import { initialTaskState, taskReducer } from './store/task.reducer';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    StoreModule.forRoot({tasks: taskReducer})
     
   ],
   exports: [

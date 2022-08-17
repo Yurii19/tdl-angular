@@ -7,9 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TdCardComponent implements OnInit {
 
-  @Input() settings = {
-    cardTitle: 'card title'
-  }
+  @Input() settings: any = { title: 'title', text: 'text' };
+
   constructor() { }
 
   ngOnInit(): void {

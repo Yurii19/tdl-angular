@@ -13,6 +13,6 @@
           <mat-label>Description</mat-label>
           <textarea matInput formControlName="text"></textarea>
         </mat-form-field>
-        <button type="submit">{{ 'add task' | titlecase }}</button>
+        <button type="submit" (click)="addNewTask()">Add task</button>
       </form>
   </mat-expansion-panel>
