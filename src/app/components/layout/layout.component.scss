@@ -1,5 +1,4 @@
-section {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+div > span {
+    border: 1px solid greenyellow;
+    padding-top: 10px;
 }
