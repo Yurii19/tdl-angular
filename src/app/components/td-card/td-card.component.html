@@ -1,11 +1,13 @@
 <div class="card-wrapper">
-  <mat-card>
+  <mat-card class="{{isDone}}">
     <mat-card-title>{{ settings.title | titlecase }}</mat-card-title>
     <mat-card-subtitle></mat-card-subtitle>
-    <p>{{ settings.text}}</p>
+    <p>{{ settings.description }}</p>
     <mat-card-actions align="end">
-      <button mat-button>Like</button>
-      <button mat-button>SHARE</button>
+      <button mat-button (click)="removeTask()">Delete</button>
+      <button mat-flat-button>
+        {{ settings.status | titlecase }}
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>

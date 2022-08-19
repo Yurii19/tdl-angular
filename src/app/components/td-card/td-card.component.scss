@@ -6,3 +6,10 @@
 .mat-card-title {
 	font-size: 1.3rem;
   }
+.mat-flat-button {
+  pointer-events: none;
+  cursor: default;
+}
+.done-card {
+	box-shadow: inset 0px 0px 7px 11px rgba(138,227,102,.2);
+}

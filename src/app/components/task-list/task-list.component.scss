@@ -1,0 +1,8 @@
+section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+span > button {
+    margin-right: 20px;
+}

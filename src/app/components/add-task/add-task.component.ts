@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IAppState, ITask } from 'src/app/Interfaces';
 import { Store } from '@ngrx/store';
 import { addTask } from 'src/app/store/task.reducer';
@@ -7,30 +7,40 @@ import { addTask } from 'src/app/store/task.reducer';
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.scss']
+  styleUrls: ['./add-task.component.scss'],
 })
+
 export class AddTaskComponent implements OnInit {
 
+  @Input() newTaskId: Number = 0 ;
+
   addTask = new FormGroup({
-    title: new FormControl(''),
-    text: new FormControl('')
-  })
+    title: new FormControl('', [Validators.required]),
+    text: new FormControl('', [Validators.required]),
+  });
 
-  constructor( 
+  constructor(
     private store: Store<IAppState>
-  ) { }
+    ) {}
 
-  ngOnInit(): void {
-   // this.addTask.valueChanges.subscribe(() => console.log('value ->', this.addTask.value))
+  ngOnInit(): void { }
+
+  addNewTask() {
+    if (
+      this.addTask.controls['title'].invalid ||
+      this.addTask.controls['text'].invalid
+    ) {
+      return;
+    }
+
+    const newTask: ITask = {
+      id: this.newTaskId,
+      title: this.addTask.controls['title'].value,
+      description: this.addTask.controls['text'].value,
+      status: 'to do',
+    };
+    this.store.dispatch(addTask({ task: newTask }));
+    this.addTask.reset();
   }
-
- addNewTask() {
-   const newTask: ITask = {
-     id: 2,
-     title: this.addTask.controls['title'].value,
-     text: this.addTask.controls['text'].value,
-   }
-   this.store.dispatch(addTask({task: newTask}))
- }
 
 }

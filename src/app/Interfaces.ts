@@ -1,7 +1,8 @@
 export interface ITask {
     id: Number,
     title: String,
-    text: String,
+    description: String,
+    status: String
 }
 
 export interface ITaskState {

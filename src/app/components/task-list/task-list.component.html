@@ -1,0 +1,18 @@
+<div>
+  <span
+    >Completed tasks :
+    <button mat-mini-fab color="basic">
+      {{ tasksComposition.completed }}
+    </button>
+  </span>
+  <span
+    >To do tasks :
+    <button mat-mini-fab color="basic">
+      {{ tasksComposition.toDo }}
+    </button>
+  </span>
+</div>
+
+<section>
+  <app-td-card *ngFor="let task of tasks" [settings]="task"></app-td-card>
+</section>
