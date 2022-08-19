@@ -29,7 +29,7 @@ export function taskReducer(state: ITaskState = initialTaskState, action: any) {
           ...state.tasksSet.filter(el => el.id !== action.taskId)]
       };
     default:
-      return initialTaskState;
+      return state;
   }
 }
 
