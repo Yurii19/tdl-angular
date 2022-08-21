@@ -35,8 +35,8 @@ export class AddTaskComponent implements OnInit {
 
     const newTask: ITask = {
       id: this.newTaskId,
-      title: this.addTask.controls['title'].value,
-      description: this.addTask.controls['text'].value,
+      title: this.addTask.controls['title'].value!,
+      description: this.addTask.controls['text'].value!,
       status: 'to do',
     };
     this.store.dispatch(addTask({ task: newTask }));
