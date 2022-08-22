@@ -25,7 +25,6 @@ export class LayoutComponent implements OnInit, OnDestroy {
         this.tasks = data;
         this.newTaskId = this.getNewTaskId();
         this.tasksComposition = this.getTasksComposition(data);
-        console.log('new tasks -> ', data); //to do: remove the line
       });
   }
 

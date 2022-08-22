@@ -4,6 +4,7 @@
     <mat-card-subtitle></mat-card-subtitle>
     <p>{{ settings.description }}</p>
     <mat-card-actions align="end">
+      <button *ngIf="settings.status==='to do'" mat-button (click)="markAsDone()">Mark as done</button>
       <button mat-button (click)="removeTask()">Delete</button>
       <button mat-flat-button>
         {{ settings.status | titlecase }}

@@ -28,6 +28,12 @@ export function taskReducer(state: ITaskState = initialTaskState, action: any) {
         tasksSet: [
           ...state.tasksSet.filter(el => el.id !== action.taskId)]
       };
+    case 'markTaskAsDone':
+      return {
+        ...state,
+        tasksSet: [
+          ...state.tasksSet.map(el => el.id === action.taskId ? {...el, status : 'done'}: el)]
+      };
     default:
       return state;
   }
@@ -36,3 +42,5 @@ export function taskReducer(state: ITaskState = initialTaskState, action: any) {
 export const addTask = createAction('addTask', props<{ task: ITask }>());
 
 export const removeTask = createAction('removeTask', props<{taskId: Number}>())
+
+export const markTaskAsDone = createAction('markTaskAsDone', props<{taskId: Number}>())
