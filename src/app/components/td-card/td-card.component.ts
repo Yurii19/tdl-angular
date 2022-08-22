@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { of } from 'rxjs';
 import { IAppState } from 'src/app/Interfaces';
 import { Store } from '@ngrx/store';
-import { removeTask } from 'src/app/store/task.reducer';
+import { markTaskAsDone, removeTask } from 'src/app/store/task.reducer';
 
 @Component({
   selector: 'app-td-card',
@@ -24,6 +24,10 @@ export class TdCardComponent implements OnInit {
 
   removeTask() {
     this.store.dispatch(removeTask({taskId : this.settings.id}));
+  }
+
+  markAsDone() {
+    this.store.dispatch(markTaskAsDone({taskId : this.settings.id}));
   }
 
 }
